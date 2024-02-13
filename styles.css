@@ -1,0 +1,96 @@
+:root {
+  --BGCOLOR: white;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--BGCOLOR);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+label {
+  width: 500px;
+  height: 200px;
+  position: relative;
+  display: block;
+  background-color: whitesmoke;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.37) inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+label::after {
+  content: "";
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-image: radial-gradient(circle, #ffcc89, #d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.201);
+  transition: 0.4s;
+}
+
+input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+input:checked + label {
+  background-color: #242424;
+}
+
+input:checked + label::after {
+  left: 490px;
+  transform: translateX(-100%);
+  background-image: radial-gradient(circle, #777, #3a3a3a);
+}
+
+label:active::after {
+  width: 260px;
+}
+
+label i {
+  position: absolute;
+  width: 120px;
+  top: 40px;
+  z-index: 1;
+}
+
+label .fa-sun {
+  display: block;
+  color: white;
+  transition: 0.4s;
+  left: 68px;
+  top: 65px;
+  font-size: 4rem;
+}
+
+label .fa-moon {
+  display: none;
+}
+
+input:checked + label .fa-sun {
+  display: none;
+}
+
+input:checked + label .fa-moon {
+  display: block;
+  color: white;
+  transition: 0.4s;
+  left: 378px;
+  top: 65px;
+  font-size: 4rem;
+}
